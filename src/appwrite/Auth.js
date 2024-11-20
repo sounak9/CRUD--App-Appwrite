@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-catch */
-import { Await } from "react-router-dom";
+
 import conf from "../conf/conf";
 import { Client, Account, ID } from "appwrite";
 
@@ -50,16 +50,15 @@ export class AuthService {
     return null;
   }
 
-    async logout() {
-      try {
-        await this.account.deleteSessions()
-      } catch (error) {
-        console.log("Appwrite service :: logout :: error", error);
+  async logout() {
+    try {
+      await this.account.deleteSessions();
+    } catch (error) {
+      console.log("Appwrite service :: logout :: error", error);
     }
-      }
   }
 }
 
 const authService = new AuthService();
 
-export default AuthService;
+export default authService;
